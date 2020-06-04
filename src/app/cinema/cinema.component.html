@@ -1,1 +1,29 @@
-<p>cinema works!</p>
+<div class="row">
+      <div class="col-md-4">
+        <ul *ngIf="cities" class="list-group">
+          <li *ngFor="let city of cities._embedded.cities"
+               (click)="onGetCinemas(city)"
+                class="list-group-item"
+                [ngClass]="{active: city.name==currentCity}"
+                style="cursor: pointer;">
+            {{city.name}}
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-8">
+        <div class="panel panel-default">
+          <div class="panel-heading">List of cinemas</div>
+          <div class="panel-body">
+            <ul *ngIf="cinemas" class="nav nav-pills">
+              <li *ngFor="let cinema of cinemas._embedded.cinemas"
+                   style="cursor: pointer;">
+                <a>{{cinema.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+</div>
+
+
