@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Adding City</div>
+      <div class="panel-body">
+        <form #f="ngForm" (ngSubmit)="onSaveCity(f.value)">
+          <div class="form-group">
+            <label for="name">City Name</label>
+            <input type="text" [(ngModel)]="cityName" name="name" id="name" class="form-control">
+          </div>
+          <button class="btn btn-primary" type="submit">save</button>
+        </form>
+      </div>
+      </div>
+  </div>
+  <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Searching</div>
+        <div class="panel-body">
+        <div class="form-group">
+          <label for=""> Search</label>
+          <input  [(ngModel)]="search" type="text" name="" id="" class="form-control" placeholder="searching by city name!">
+        </div>
+        <button (click)="onSearch()" class="btn btn-primary">search</button>
+      </div>
+    </div>
+  <!-- </div> -->
+</div>
+</div>
+
+    <hr>
+    <div class="panel panel-default">
+    <div class="panel-heading">All Cities</div>
+    <div class="panel-body">
+      <div class="row">
+        <div *ngFor="let city of cities">
+          <div class="col-xs-8">
+            <ul class="list-group">
+              <li class="list-group-item">{{ city.name }}</li>
+            </ul>
+          </div>
+          <div class="col-xs-4">
+            <button class="btn alert-warning" (click)="onUpdateCity(city.id)">update</button> |
+            <button class="btn alert-danger" (click)="onDeleteCity(city.id)">delete</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+

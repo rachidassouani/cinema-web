@@ -1,0 +1,58 @@
+<div class="row" *ngIf="movie">
+    <div class="col-md-8 col-md-offset-2">
+      <a class="btn btn-primary" routerLink="/movies">Back to movies</a>
+      <hr>
+    <div class="panel panel-default">
+      <div class="panel-heading">{{movie.title}}</div>
+      <div class="panel-body">
+        <div class="row" style="cursor: pointer;">
+          <div class="col-md-5">
+              <img  src="../assets/photos/{{ movie.photo }}.jpeg"
+                    alt="image of "
+                    style="width: 150px; height: 200px;">
+          </div>
+         <div class="col-md-7">
+          <label>title: </label>{{ movie.title }} <br>
+          <label>description: </label>{{ movie.description }}<br>
+          <label>director: </label>{{ movie.director }}<br>
+          <label>duration: </label>{{ movie.duration }} mins<br>
+         </div>
+        </div>
+
+      <div *ngIf="reviews">
+          <h3 class="alert-info" style="width: 150px;">all reviews</h3>
+          <div *ngFor="let review of reviews">
+            <div class="row">
+              <div class="col-xs-8">
+                <p>{{ review.message }}</p>
+              </div>
+              <div class="col-xs-4">
+                <button class="btn alert-warning" (click)="onUpdateReview(review.id)">Update</button> |
+                <button class="btn alert-danger"  (click)="onDeleteReview(review.id)">Delete</button>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <form #f=ngForm (ngSubmit)="onSaveReview(f.value)" >
+              <div class="col-md-7">
+                <input
+                  placeholder="add your review"
+                  [(ngModel)]="message"
+                  type="text" name="message" id="message"
+                  class="form-control" >
+              </div>
+              <div class="col-md-2">
+                <button class="btn btn-success" type="submit">save</button>
+              </div>
+            </form>
+          </div>
+          <hr>
+      </div>
+      </div>
+    </div>
+
+
+    </div>
+
+</div>

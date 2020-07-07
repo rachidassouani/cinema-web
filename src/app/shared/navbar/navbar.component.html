@@ -6,18 +6,21 @@
       <a class="navbar-brand" routerLink="">Cinema Maroc</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a routerLink="">Home</a></li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+      <li class="active"><a routerLink="">CINEMAS</a></li>
+      <li class="active"><a (click)="onGetMovies()">MOVIES</a></li>
+
+   <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Panel Admin
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
+          <li><a routerLink="admin/city">Add City</a></li>
+          <li><a routerLink="admin/cinema">Add Cinema</a></li>
+          <li><a routerLink="admin/room">Add Room</a></li>
         </ul>
       </li>
-      <li><a routerLink="">Page 2</a></li>
-      <li><a routerLink="">Page 3</a></li>
+         <!-- <li><a routerLink="">Page 2</a></li>
+      <li><a routerLink="">Page 3</a></li> -->
+      <li><a class=" alert-info">encadré par: Mme SABBAR</a></li>
     </ul>
   </div>
 </div>

@@ -1,0 +1,42 @@
+
+<!-- <div class="col-md-8 col-md-offset-2"> -->
+  <button class="btn btn-warning">Back to cinemas</button>
+  <hr>
+<div *ngIf="cinema  && city">
+<div class="row">
+  <div class="col-md-6">
+    <div class="col-md-3">Cinema Name: </div>
+    <div class="col-md-9">
+      <p> {{cinema.name}} </p>
+    </div>
+    <div class="col-md-3">City Name: </div>
+    <div class="col-md-9">
+      <p> {{city.name}} </p>
+    </div>
+    <div class="col-md-3">Address </div>
+    <div class="col-md-9">
+      <p> {{cinema.address}} :</p>
+    </div>
+    <div class="col-md-3">Count rooms</div>
+    <div class="col-md-9">
+      <p> {{countRoom}} </p>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div>
+      <form #f="ngForm" (ngSubmit)="onSaveRoom(f.value)">
+        <div class="form-group">
+          <label for="name">Room Name</label>
+          <input type="text" ngModel class="form-control" name="name" id="name">
+        </div>
+        <div class="form-group">
+          <label for="name">Count Seats</label>
+          <input type="text" ngModel class="form-control" name="countSeats" id="countSeats">
+        </div>
+        <button class="btn btn-success" type="submit">save new room</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

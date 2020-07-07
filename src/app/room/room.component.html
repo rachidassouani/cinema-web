@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">Adding Room</div>
+      <div class="panel-body">
+        <form #f="ngForm" (ngSubmit)="onSaveRoom(f.value)">
+          <div class="form-group">
+            <label for="name">Room Name</label>
+            <input type="text" [(ngModel)]="roomName" name="name" id="name" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="name">count Seats</label>
+            <input type="text" ngModel name="countSeats" id="address" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="name">City</label>
+            <!-- <option value="" disabled>Choose a city</option> -->
+            <select (change)="onCityChange($event)" name="city" class="form-control">
+              <option *ngFor="let city of cities" [value]="city.id">
+                {{ city.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="name">Cinema</label>
+            <!-- <option value="" disabled>Choose a city</option> -->
+            <select (change)="onCinemaChange($event)" ngModel name="cinema" class="form-control">
+              <option *ngFor="let cinema of cinemas" [value]="cinema.id">
+                {{ cinema.name }}
+              </option>
+            </select>
+          </div>
+          <button class="btn btn-primary" type="submit">save</button>
+        </form>
+      </div>
+      </div>
+
+      <hr>
+      <div *ngIf="idCinema">
+      <h3>Room managmenet</h3>
+      <div class="panel panel-default">
+        <div class="panel-heading">Adding Room</div>
+        <div class="panel-body">
+
+
+        </div>
+      </div>
+    </div>
+  </div>

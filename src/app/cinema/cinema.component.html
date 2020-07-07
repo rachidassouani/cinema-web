@@ -1,29 +1,99 @@
 <div class="row">
-      <div class="col-md-4">
-        <ul *ngIf="cities" class="list-group">
-          <li *ngFor="let city of cities._embedded.cities"
-               (click)="onGetCinemas(city)"
-                class="list-group-item"
-                [ngClass]="{active: city.name==currentCity}"
-                style="cursor: pointer;">
-            {{city.name}}
-          </li>
-        </ul>
-      </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Adding Cinema</div>
+      <div class="panel-body">
+        <form #f="ngForm" (ngSubmit)="onSaveCinema(f.value)">
+          <div class="form-group">
+            <label for="name">Cinema Name</label>
+            <input type="text" [(ngModel)]="cinemaName" name="name" id="name" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="name">Address</label>
+            <input type="text" ngModel name="address" id="address" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="name">rooms count (nb de salle)</label>
+            <input type="text" ngModel name="countRooms" id="countRooms" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="name">City</label>
+            <!-- <option value="" disabled>Choose a city</option> -->
+            <select name="city" ngModel class="form-control">
+              <option *ngFor="let city of cities" [ngValue]="city">
+                {{ city.name }}
+              </option>
+            </select>
+          </div>
 
-      <div class="col-md-8">
-        <div class="panel panel-default">
-          <div class="panel-heading">List of cinemas</div>
-          <div class="panel-body">
-            <ul *ngIf="cinemas" class="nav nav-pills">
-              <li *ngFor="let cinema of cinemas._embedded.cinemas"
-                   style="cursor: pointer;">
-                <a>{{cinema.name}}</a>
-              </li>
+          <button class="btn btn-primary" type="submit">save</button>
+        </form>
+      </div>
+      </div>
+  </div>
+  <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Searching</div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="name">City</label>
+            <select (change)="onSearchChange($event)" class="form-control">
+              <option [value]="city.id" *ngFor="let city of cities">
+                {{ city.name }}
+              </option>
+            </select>
+          </div>
+      </div>
+    </div>
+  <!-- </div> -->
+
+  <div *ngIf="cinemas">
+    <div class="panel panel-default">
+    <div class="panel-heading">All app-cinemas</div>
+    <div class="panel-body">
+  <div *ngFor="let cinema of cinemas">
+    <div class="col-xs-8">
+
+      <ul class="list-group">
+        <a routerLink="/admin/cinema-detail/{{cinema.id}}/{{cityId}}"><li class="list-group-item">{{ cinema.name }}</li></a>
+      </ul>
+
+    </div>
+    <div class="col-xs-4">
+      <button class="btn alert-warning" (click)="onUpdateCinema(cinema.id)">update</button> |
+      <button class="btn alert-danger" (click)="onDeleteCinema(cinema.id)">delete</button>
+    </div>
+  </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+</div>
+<!--
+
+    <hr>
+    <div *ngIf="cinemas">
+    <div class="panel panel-default">
+    <div class="panel-heading">All app-cinemas</div>
+    <div class="panel-body">
+      <div class="row">
+        <div *ngFor="let cinema of cinemas">
+          <div class="col-xs-8">
+            <ul class="list-group">
+              <li class="list-group-item"> {{ cinema.name }}</li>
             </ul>
+          </div>
+          <div class="col-xs-4">
+            <button class="btn alert-warning" (click)="onUpdateCinema(cinema.id)">update</button> |
+            <button class="btn alert-danger" (click)="onDeleteCinema(cinema.id)">delete</button>
           </div>
         </div>
       </div>
-</div>
-
+    </div>
+    </div>
+</div> -->
 

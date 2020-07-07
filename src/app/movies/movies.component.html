@@ -1,0 +1,22 @@
+<div class="row" *ngIf="movies">
+  <div *ngFor="let movie of movies">
+    <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">{{movie.title}}</div>
+      <div class="panel-body">
+        <div class="row" style="cursor: pointer;" (click)="onGetMovieDetails(movie.id)">
+          <div class="col-md-5">
+              <img  src="../assets/photos/{{ movie.photo }}.jpeg"
+                    alt="image of "
+                    style="width: 150px; height: 200px;"
+                    >
+          </div>
+         <div class="col-md-7">
+            <p>{{ movie.description }}</p>
+         </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
