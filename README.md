@@ -25,3 +25,28 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+# To best understand my app.
+
+Buying Tickets
+
+![screen1](https://user-images.githubusercontent.com/28673665/86824278-d67e3480-c085-11ea-90f3-c9aff9b9b333.png)
+
+Choosing `Casablanca` as a city and `Megarama` as a cinema.
+
+![screen2](https://user-images.githubusercontent.com/28673665/86824317-e5fd7d80-c085-11ea-8c6c-d5b6dc90b0a3.png)
+
+Buying 3 tickets with `Rachid` as a Client Name
+
+![screen5](https://user-images.githubusercontent.com/28673665/86824349-f150a900-c085-11ea-8467-ca5bef241363.png)
+
+Message that we get after we buying tickets
+
+![screen6](https://user-images.githubusercontent.com/28673665/86824425-07f70000-c086-11ea-866f-0666d97daae8.png)
+
+We cannot buy those tickets another time, because they reserved 
+
+![screen8](https://user-images.githubusercontent.com/28673665/86825590-75576080-c087-11ea-9f30-85d40ce58297.png)
+
+# More features are coming soon ...!
